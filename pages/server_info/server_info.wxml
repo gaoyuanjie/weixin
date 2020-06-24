@@ -1,0 +1,21 @@
+<!--pages/server_info/server_info.wxml-->
+<view class="container">
+  <view class="content">
+      <text>维修厂家:</text><text>{{mouldSer.maintenance_factory}}</text>
+  </view>
+  <view class="content">
+      <text>维修记录:</text>
+  </view>
+  <view class="content">
+      <textarea readonly>{{mouldSer.maintenance_record}}</textarea>
+  </view>
+  <view class="content">
+      <text>故障记录:</text>
+  </view>
+  <view class="content">
+      <textarea readonly>{{mouldSer.error_record}}</textarea>
+  </view>
+  <view class="content">
+      <text>报废日期:</text><text>{{mouldSer.date_of_retirement}}</text>
+  </view>
+</view>

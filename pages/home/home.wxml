@@ -1,0 +1,26 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="top-view">
+    <view class="user">
+      <view class="row">
+        <image class="avatar" wx:if="{{userInfo}}" src="{{userInfo.avatarUrl}}"></image>
+        <image class="avatar" wx:else src="/static/images/auction/hh.png"></image>
+        <view class="name" wx:if="{{userInfo}}">
+          <view bindtap="logout">{{userInfo.nickName}}</view>
+        </view>
+        <view class="name" wx:else>
+          <navigator url="/pages/login/login">登录</navigator> |
+          <navigator url="/pages/register/register">注册</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="contact-view">
+    <button open-type="contact">
+      <image src="/static/images/icon/wechat_contact_icon_show.png"></image>
+    </button>
+    <button bindtap="onClickCall">
+      <image src="/static/images/icon/phone_contact_icon_show.png"></image>
+    </button>
+  </view>
+</view>

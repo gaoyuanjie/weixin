@@ -1,0 +1,15 @@
+<!--pages/index/index.wxml-->
+<view  wx:for="{{mouldList}}" wx:key="index" class="container">
+  <view class="content">
+  <text>模具ID:</text><text>{{item.mould_id}}</text>
+  </view>
+  <view class="content">
+  <text>模具名称:</text><text>{{item.mould_name}}</text>
+  </view>
+  <navigator class="content" url='/pages/mould_manu_info/mould_manu_info?mouldId={{item.id}}' >
+    <text>模具制造信息查看</text>
+  </navigator>
+  <navigator class="content" url='/pages/server_info/server_info?mouldId={{item.id}}'>
+    <text>模具维修信息查看</text>
+  </navigator>
+</view>

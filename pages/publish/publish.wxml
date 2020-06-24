@@ -1,0 +1,85 @@
+<!--pages/publish/publish.wxml-->
+<!--pages/mould_manu_info/mould_manu_info.wxml-->
+
+<view class="container">
+  <view class="content">
+    模具编号:
+    <input bindinput="Mould_id">{{mouldInfo.mould_id}}</input>
+  </view>
+  <view class="content">
+    模具名称:
+    <input bindinput="Mould_id">{{mouldInfo.mould_name}}</input>
+  </view>
+</view>
+
+
+<view class="container">
+  <view class="content">
+    模具材质:
+    <input bindinput="Mould_id">{{mouldInfo.mould_materials}}</input>
+  </view>
+  <view class="content">
+    模具重量:
+    <input bindinput="Mould_id">{{mouldInfo.mould_weight}}</input>
+  </view>
+  <view class="content">
+    模具尺寸:
+    <input bindinput="Mould_id">{{mouldInfo.mould_size}}</input>
+  </view>
+  <view class="content">
+    模具图号:
+    <input bindinput="Mould_id">{{mouldInfo.mould_drawing_no}}</input>
+  </view>
+  <view class="content">
+    模具腔数:
+    <input bindinput="Mould_id">{{mouldInfo.mould_cavity}}</input>
+  </view>
+  <view class="content">
+    客户名称:
+    <input bindinput="Mould_id">{{mouldInfo.mould_owner}}</input>
+  </view>
+  <view class="content">
+    零件编号
+    <input bindinput="Mould_id">{{mouldInfo.part_id}}</input>
+  </view>
+  <view class="content">
+    制造日期:
+    <input bindinput="Mould_id">{{mouldInfo.finish_date}}</input>
+  </view>
+  <view class="content">
+    备注信息:
+    <input bindinput="Mould_id">{{mouldInfo.order_note}}</input>
+  </view>
+  <view class="content">
+    交付日期:
+    <input bindinput="Mould_id">{{mouldInfo.delivery_date}}</input>
+  </view>
+</view>
+
+<view class="container">
+  <view class="content">
+    维修厂家:
+    <input bindinput="Mould_id">{{mouldInfo.mould_materials}}</input>
+  </view>
+  <view class="content">
+    维修记录:
+  </view>
+  <view class="content">
+     <textarea bindinput="Mould_id">
+      {{mouldInfo.mould_weight}}
+    </textarea>
+   </view>
+  <view class="content">
+    故障记录:
+  </view>
+   <view class="content">
+     <textarea>
+      {{mouldInfo.mould_weight}}
+    </textarea>
+  </view>
+     
+  <view class="content">
+    报废日期:
+    <input>{{mouldInfo.mould_drawing_no}}</input>
+  </view>
+</view>

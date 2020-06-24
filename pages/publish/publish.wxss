@@ -1,0 +1,15 @@
+/* pages/publish/publish.wxss */
+.container{
+  margin: 50rpx 20rpx;
+  border: solid 1rpx #D3D3D3
+}
+.content{
+  display: flex;
+  flex-direction: row; 
+  justify-content: flex-start; 
+  background: #FFFAFA;
+  margin: 15rpx;
+}
+.content input{
+  margin-left: 20rpx
+}

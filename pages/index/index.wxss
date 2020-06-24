@@ -1,0 +1,19 @@
+/* pages/index/index.wxss */
+.container{
+  margin: 35rpx 20rpx;
+  border: solid 1rpx #D3D3D3
+}
+.content{
+ 
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  background: #FFFAFA;
+  margin: 15rpx;
+}
+/* .container .content text{
+  display: inline-block;
+  width: 300rpx;
+  text-align: right;
+  border: solid 0rpx red
+} */

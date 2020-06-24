@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/publish/publish",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/changepassword/changepassword",
+    "pages/mould_manu_info/mould_manu_info",
+    "pages/server_info/server_info"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "黄骅模具管理"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "color": "#666",
+    "selectedColor": "#b4282d",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "模具列表",
+        "iconPath": "static/images/tabbar/ic_menu_choice_nor.png",
+        "selectedIconPath": "static/images/tabbar/ic_menu_choice_pressed.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "信息添加",
+        "iconPath": "static/images/tabbar/ic_menu_sort_nor.png",
+        "selectedIconPath": "static/images/tabbar/ic_menu_sort_pressed.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "static/images/tabbar/ic_menu_me_nor.png",
+        "selectedIconPath": "static/images/tabbar/ic_menu_me_pressed.png"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,33 @@
+<!--pages/mould_manu_info/mould_manu_info.wxml-->
+<view class="container">
+  <view class="content">
+      <text>模具材质:</text><text>{{mouldInfo.mould_materials}}</text>
+  </view>
+  <view class="content">
+      <text>模具重量:</text><text>{{mouldInfo.mould_weight}}</text>
+  </view>
+  <view class="content">
+      <text>模具尺寸:</text><text>{{mouldInfo.mould_size}}</text>
+  </view>
+  <view class="content">
+      <text>模具图号:</text><text>{{mouldInfo.mould_drawing_no}}</text>
+  </view>
+    <view class="content">
+      <text>模具腔数:</text><text>{{mouldInfo.mould_cavity}}</text>
+  </view>
+    <view class="content">
+      <text>客户名称:</text><text>{{mouldInfo.mould_owner}}</text>
+  </view>
+    <view class="content">
+      <text>零件编号</text><text>{{mouldInfo.part_id}}</text>
+  </view>
+  <view class="content">
+      <text>制造日期:</text><text>{{mouldInfo.finish_date}}</text>
+  </view>
+  <view class="content">
+      <text>备注信息:</text><text>{{mouldInfo.order_note}}</text>
+  </view>
+  <view class="content">
+      <text>交付日期:</text><text>{{mouldInfo.delivery_date}}</text>
+  </view>
+</view>
