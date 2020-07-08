@@ -1,19 +1,175 @@
 /* pages/index/index.wxss */
-.container{
-  margin: 35rpx 20rpx;
-  border: solid 1rpx #D3D3D3
+
+page {
+  background: #f3f7f7;
 }
-.content{
- 
+
+/* 第一屏 */
+
+.filter {
   display: flex;
-  flex-direction: row; 
-  justify-content: space-between; 
-  background: #FFFAFA;
-  margin: 15rpx;
+  flex-direction: column;
+  height: 140rpx;
+  justify-content: space-between;
+  margin: 35rpx 20rpx;
+  z-index: 5;
+  /* background-color: #EFEFF4; */
 }
-/* .container .content text{
-  display: inline-block;
-  width: 300rpx;
-  text-align: right;
-  border: solid 0rpx red
-} */
+
+/* 搜索框样式，注意一下行高 */
+
+.weui-search-bar__cancel-btn {
+  margin-left: 16rpx;
+  line-height: 64rpx;
+  color: #09bb07;
+  white-space: nowrap;
+}
+
+/* 下拉框样式 */
+
+.select_box {
+  /* margin: 35rpx;
+ background: #fff;
+ width: 100%;
+ position: relative; */
+  position: relative;
+  padding: 35rpx 20rpx;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #efeff4;
+  border-top: 1rpx solid #d7d6dc;
+  border-bottom: 1rpx solid #d7d6dc;
+}
+
+.select {
+  box-sizing: border-box;
+  width: 100%;
+  /* height: 70rpx; */
+  border: 1px solid #000;
+  border-radius: 8rpx;
+  display: flex;
+  /* align-items: center; *//* padding: 0 20rpx; */
+  background-color: #fff;
+}
+
+.select_text {
+  /* font-size: 30rpx; */
+  padding: 0 20rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  flex: 1;
+}
+
+.select_img {
+  margin-top: 16rpx;
+  margin-right: 16rpx;
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate {
+  transform: rotate(180deg);
+}
+
+/* overflow-y: auto;必须设置，不然不会自动收起来，即哪怕你父元素是0rpx */
+.option_box {
+  z-index: 100;
+  position: absolute;
+  top: 105rpx;
+  width: 100%;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option {
+  display: block;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 10rpx;
+}
+
+/* 第二屏 */
+
+/* 文本内容样式 */
+
+.container {
+  display: flex;
+  box-shadow: 10rpx 10rpx 10rpx #888888;
+  flex-direction:column;
+  border-radius: 30rpx;
+  margin-top:30rpx;
+  margin-left:30rpx;
+  margin-right:30rpx;
+  margin-bottom:30rpx;
+  background: rgb(215, 228, 241);
+}
+
+.content {
+  
+  margin-left:40rpx;
+  margin-right:40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid rgb(0, 0, 0);
+}
+
+.content .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.you_jian_tou {
+  margin-left: 20rpx;
+  width: 0;
+  height: 0;
+  border-width: 20rpx;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+.content1 {
+  display: flex;
+  justify-content: space-around;
+  font-size:30rpx;
+  margin-top:10rpx;
+
+}
+.content1 .left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content1 .center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content1 .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content1 text{
+  color: #b3870e;
+  font-weight: 900;
+}
+.content1 .title2{
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #000000;
+}
+

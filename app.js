@@ -11,12 +11,15 @@ App({
     userInfo: null
   },
   initUserInfo: function(tokenInfo, userInfo) {
+    console.log('rinidaba',tokenInfo)
     var info = {
       nickName: userInfo.nickName,
       avatarUrl: userInfo.avatarUrl,
-      token: tokenInfo.token,
-      email: tokenInfo.email,
-      user_type:tokenInfo.user_type
+      token: tokenInfo.access_token,
+      order_count: tokenInfo.order_count,
+      username: tokenInfo.username,
+      user_type: tokenInfo.user_type,
+      token_type: tokenInfo.token_type
     };
     this.globalData.userInfo = info
     wx.setStorageSync('userInfo', info);

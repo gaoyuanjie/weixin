@@ -1,0 +1,77 @@
+/* pages/mould_detail/mould_detail.wxss */
+
+/* 标题样式 */
+.ordertitle{
+  margin-top: 20rpx;
+  height: 40rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 40rpx;
+  color: #dccd53;
+  font-size: 40rpx;
+  font-weight: 750;
+}
+
+/* 内容区样式 */
+.container {
+  z-index: 5;
+  margin: 35rpx 20rpx;
+  background: #d7e4f1;
+  border-radius: 20rpx;
+  border: solid 1rpx #d3d3d3;
+  box-shadow: 0 5rpx 20rpx 0 rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  border-bottom: solid 3rpx black;
+}
+
+.content .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 18rpx 16rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.you_jian_tou {
+  margin-left: 20rpx;
+  width: 0;
+  height: 0;
+  border-width: 20rpx;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+.content1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8rpx 35rpx;
+}
+.content1 .left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.content1 .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.content1 text{
+  display: block;
+  margin: 8rpx 35rpx;
+  font-size: 30rpx;
+}
+.content1 .title2{
+  font-size: 30rpx;
+  font-weight: 600;
+}

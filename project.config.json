@@ -7,6 +7,7 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -20,7 +21,9 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.1",
@@ -109,6 +112,13 @@
 					"id": -1,
 					"name": "pages/changepassword/changepassword",
 					"pathName": "pages/changepassword/changepassword",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/666/666",
+					"pathName": "pages/666/666",
 					"scene": null
 				}
 			]

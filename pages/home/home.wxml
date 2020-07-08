@@ -9,9 +9,32 @@
           <view bindtap="logout">{{userInfo.nickName}}</view>
         </view>
         <view class="name" wx:else>
-          <navigator url="/pages/login/login">登录</navigator> |
-          <navigator url="/pages/register/register">注册</navigator>
+          <navigator url="/pages/login/login">登录</navigator> 
         </view>
+      </view>
+    </view>
+  </view>
+    <view class="function-view">
+    <view class="row">
+      <view class="left">用户类型</view>
+      <view class="right">
+        <text>{{userInfo?(userInfo.user_type=="User" ? "普通用户":"管理员"):''}}</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="left">累计下单数</view>
+      <view class="right">
+        <text>{{userInfo.order_count}}</text>
+        <!-- <image class="go-icon" src='/static/images/icon/to_icon_show_small.png'></image> -->
+      </view>
+    </view>
+    <view class="row">
+      <view class="left">        
+        <button bindtap="saoma" style="font-size: 24rpx;">
+          模具扫码
+        </button></view>
+      <view class="right">
+
       </view>
     </view>
   </view>

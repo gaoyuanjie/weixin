@@ -1,0 +1,25 @@
+<!--pages/mould_list/mould_list.wxml-->
+<view class="ordertitle">
+  {{ordername}}的模具信息
+</view>
+
+<view wx:for="{{mould_list}}" wx:key="index" class="container">
+  <view class="content">
+    <view class="title">
+      <text decode>模具名:&nbsp;{{item.mouldName}}</text>
+      <view class="you_jian_tou" bindtap="mould_info" data-mouldid="{{item.mouldID}}" data-mouldname="{{item.mouldName}}"></view>
+    </view>
+  </view>
+  <view class="content1">
+    <view class="left">
+      <text>{{item.number}}</text>
+      <text class="title2">零件数量</text>
+    </view>
+    <view class="right">
+      <text>{{item.createTime}}</text>
+      <text class="title2">创建时间</text>
+    </view>
+  </view>
+</view>
+
+

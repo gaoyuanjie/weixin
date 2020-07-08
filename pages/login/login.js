@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    email: "975934321@qq.com",
+    username: "bjut123",
     password: ""
   },
 
@@ -68,60 +68,8 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  /** 
-   * 点击获取短信验证码
-   */
-  onClickCheckCode: function (e) {
-    // 判断邮箱格式是否正确
-    if (!this.data.email.length) {
-      wx.showToast({
-        title: '请填写邮箱',
-        icon: 'none'
-      })
-      return
-    }
-    var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-    if (!myReg.test(this.data.email)) {
-      wx.showToast({
-        title: '邮箱格式不对',
-        icon: 'none'
-      })
-      return
-    }
-    wx.request({
-      url: api.MsgCode,
-      data: {
-       email: this.data.phone
-      },
-      method: 'GET',
-      dataType: 'json',
-      success: function (res) {
-        wx.showToast({
-          title: res.data.message,
-          icon: 'none'
-        })
-      }
-    })
-
-  },
+  },  
   onClickSubmit: function (e) {
-    // 判断邮箱格式是否正确
-    if (!this.data.email.length) {
-      wx.showToast({
-        title: '请填写邮箱',
-        icon: 'none'
-      })
-      return
-    }
-    var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-    if (!myReg.test(this.data.email)) {
-      wx.showToast({
-        title: '邮箱格式不对',
-        icon: 'none'
-      })
-      return
-    }
     if (!this.data.password.length) {
       wx.showToast({
         title: '请填写密码',
@@ -132,11 +80,13 @@ Page({
     wx.request({
       url: api.Login,
       data: {
-        email: this.data.email,
+        username: this.data.username,
         password: this.data.password
       },
       method: 'POST',
       success: function (res) {
+        console.log('111',res)
+        console.log(e.detail.userInfo)
         if (res.data.status) {
           app.initUserInfo(res.data.data, e.detail.userInfo);
           wx.navigateBack();
@@ -151,7 +101,7 @@ Page({
   },
   bindEmailInput: function (e) {
     this.setData({
-      email: e.detail.value
+      username: e.detail.value
     });
   },
   bindPasswordInput: function (e) {

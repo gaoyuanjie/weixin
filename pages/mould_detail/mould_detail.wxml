@@ -1,0 +1,16 @@
+<!--pages/mould_detail/mould_detail.wxml-->
+<view class="ordertitle">
+  {{mouldname}}的维修信息
+</view>
+
+<view wx:for="{{mould_detail}}" wx:key="index" class="container">
+  <view>
+    维修编号:&nbsp;{{item.repairID}}
+  </view>
+  <view>
+    {{item.maintenanceRecord}}
+  </view>
+  <view>
+    {{item.errorRecord}}
+  </view>
+</view>

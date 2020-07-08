@@ -2,12 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/home/home",
-    "pages/publish/publish",
     "pages/login/login",
-    "pages/register/register",
-    "pages/changepassword/changepassword",
-    "pages/mould_manu_info/mould_manu_info",
-    "pages/server_info/server_info"
+    "pages/mould_list/mould_list",
+    "pages/mould_detail/mould_detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -25,12 +22,6 @@
         "text": "模具列表",
         "iconPath": "static/images/tabbar/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/tabbar/ic_menu_choice_pressed.png"
-      },
-      {
-        "pagePath": "pages/publish/publish",
-        "text": "信息添加",
-        "iconPath": "static/images/tabbar/ic_menu_sort_nor.png",
-        "selectedIconPath": "static/images/tabbar/ic_menu_sort_pressed.png"
       },
       {
         "pagePath": "pages/home/home",

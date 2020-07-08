@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo:null,
-    user_type:'无'
+    user_type:'无',
   },
 
   /**
@@ -108,12 +108,44 @@ Page({
   },
   onClickCall:function(){
     wx.makePhoneCall({
-      phoneNumber: '15131255089'
+      phoneNumber: '18810927236'
     })
   },
   logout:function(){
     app.logoutUserInfo();
     
     this.setData({userInfo:null});
+  },
+  saoma:function(){
+    var userInfo = wx.getStorageSync('userInfo')
+    if (!userInfo) {
+      wx.showToast({
+        title: '您当前未登陆，请登录！',
+        icon: 'none'
+      })
+      return
+    }
+    wx.scanCode({
+      success(res) {
+        console.log(res)
+        wx.request({
+          url: res.result,
+          data: {
+            username:userInfo.username
+          },
+          header: {
+            Authorization: app.globalData.userInfo ? app.globalData.userInfo.token : null
+          },
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: function(res) {
+            console.log(res)
+          },
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      }
+    })
   }
 })
