@@ -1,0 +1,81 @@
+
+<!--pages/mould_detail/mould_detail.wxml-->
+
+<view class="swiper-tab">
+	<block wx:for="{{swipertab}}" wx:key="sptab">
+		<view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+	</block>
+</view>
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindchange="tabChange">
+	<!-- 完成 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
+			<view wx:for="{{mould_zhizao}}" wx:key="index" class="container">
+				<view class='item'>
+					<view class='left'>模具编号</view>
+					<view class='right'>{{item.mouldID}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>模具名称</view>
+					<view class='right'>{{item.productName}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>模具材质</view>
+					<view class='right'>{{item.material}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>模具重量</view>
+					<view class='right'>{{item.weight}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>模具尺寸</view>
+					<view class='right'>{{itme.mouldSize}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>模具图号</view>
+					<view class='right'>{{itme.drawingNo}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>模具腔数</view>
+					<view class='right'>{{item.cavitiesNumber}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>制造商</view>
+					<view class='right'>{{list.Mu_a}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>制造日期</view>
+					<view class='right'>{{item.createTime}}</view>
+				</view>
+			</view>
+		</scroll-view>
+	</swiper-item>
+
+
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true">
+			<view wx:for="{{mould_weixiu}}" wx:key="index" class="container">
+				<view class='item'>
+					<view class='left'>维修编号</view>
+					<view class='right'>{{item.repairID}}</view>
+				</view>
+				<view class='item'>
+					<view class='left'>维修员</view>
+					<view class='right'>{{item.repairUserId}}</view>
+				</view>
+        <view class='item2'>
+					<view class='left'>维修记录</view>
+					<view class='right'>{{item.maintenanceRecord}}</view>
+				</view>
+        <view class='item2'>
+					<view class='left'>故障记录</view>
+					<view class='right'>{{item.errorRecord}}</view>
+				</view>
+        <view class='item'>
+					<view class='left'>报废日期</view>
+					<view class='right'>{{item.retirementTime}}</view>
+				</view>
+			</view>
+    </scroll-view>
+	</swiper-item>
+</swiper>
