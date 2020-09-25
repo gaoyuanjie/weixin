@@ -3,6 +3,11 @@
 var app = getApp();
 // 导入js文件，注意require是导入关键字
 var api = require('../../config/api.js')
+
+// 这是所有页面的开始，我一开始就定好规矩，后面不在讲述
+// 每一个三角箭头都是跳到下一级页面的，然后得带参数，参数是for循环里头的一些数据以及存在本地全局仓库的数据
+// 然后各种页面初始化函数加载，各种xxx，烦死了！！！！！！！！！！！！！
+
 Page({
 
   /**
@@ -30,6 +35,14 @@ Page({
       orderList: [],
     })
     var userInfo = wx.getStorageSync('userInfo')
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight
+        });
+      }
+    });
     if (!userInfo) {
       wx.showToast({
         title: '您当前未登陆，请登录！',
@@ -60,7 +73,7 @@ Page({
           if(!res.data.success){
             // 这里的状态码太少了！
             wx.showToast({
-              title: '无订单数据',
+              title: res.data.message,
               icon: 'none'
             })
             console.log(this.data.filter_show)
@@ -70,6 +83,9 @@ Page({
               })
             }, 1500)
             return
+          }
+          for (var i = 0; i < res.data.data.length; i++) {
+            res.data.data[i].createTime = res.data.data[i].createTime.split('T')[0]
           }
           this.setData({
             orderList: res.data.data,
@@ -95,6 +111,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo.user_type == 'User' || (!userInfo)) {
+      console.log('rqwr')
+      this.getTabBar().setData({
+        list: [
+          {
+            "pagePath": "/pages/index/index",
+            "text": "订单列表",
+            "iconPath": "/static/images/tabbar/ic_menu_choice_nor.png",
+            "selectedIconPath": "/static/images/tabbar/ic_menu_choice_pressed.png"
+          },
+          {
+            "pagePath": "/pages/home/home",
+            "text": "我的",
+            "iconPath": "/static/images/tabbar/ic_menu_me_nor.png",
+            "selectedIconPath": "/static/images/tabbar/ic_menu_me_pressed.png"
+          }
+        ]
+      })
+    }
+    
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0 //这个数是，tabBar从左到右的下标，从0开始
+      })
+    }
   },
 
   /**
@@ -226,7 +269,7 @@ Page({
           })
         }
         this.setData({
-          orderList: res.data.data,
+          orderList: res.data,
         })
         console.log('443',this.data.orderList)
       },

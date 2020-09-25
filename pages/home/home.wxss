@@ -26,6 +26,7 @@
 }
 
 .top-view .user .name{
+  font-size: 30rpx;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

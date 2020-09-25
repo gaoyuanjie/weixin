@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: "bjut123",
+    username: "MCS-P001",
     password: ""
   },
 

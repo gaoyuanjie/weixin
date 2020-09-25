@@ -1,85 +1,80 @@
 <!--pages/publish/publish.wxml-->
-<!--pages/mould_manu_info/mould_manu_info.wxml-->
 
-<view class="container">
-  <view class="content">
-    模具编号:
-    <input bindinput="Mould_id">{{mouldInfo.mould_id}}</input>
-  </view>
-  <view class="content">
-    模具名称:
-    <input bindinput="Mould_id">{{mouldInfo.mould_name}}</input>
-  </view>
-</view>
+<!-- 
+
+{
+    "MouldId":"MJ202007052005030002", //模具ID
+    "PartId":"LM202007052248560001",  //零件ID
+    "RepairUserId":"MCS-P001",         //维修人员ID
+    "RepairName":"维修记录测试1",    //维修记录名
+    "MaintenanceRecord":"维修记录详细内容",
+    "ErrorRecord":"故障信息详细内容",
+    "RetirementTime":"2020-01-01"     //预计报废时间
+}
+
+ -->
 
 
-<view class="container">
-  <view class="content">
-    模具材质:
-    <input bindinput="Mould_id">{{mouldInfo.mould_materials}}</input>
-  </view>
-  <view class="content">
-    模具重量:
-    <input bindinput="Mould_id">{{mouldInfo.mould_weight}}</input>
-  </view>
-  <view class="content">
-    模具尺寸:
-    <input bindinput="Mould_id">{{mouldInfo.mould_size}}</input>
-  </view>
-  <view class="content">
-    模具图号:
-    <input bindinput="Mould_id">{{mouldInfo.mould_drawing_no}}</input>
-  </view>
-  <view class="content">
-    模具腔数:
-    <input bindinput="Mould_id">{{mouldInfo.mould_cavity}}</input>
-  </view>
-  <view class="content">
-    客户名称:
-    <input bindinput="Mould_id">{{mouldInfo.mould_owner}}</input>
-  </view>
-  <view class="content">
-    零件编号
-    <input bindinput="Mould_id">{{mouldInfo.part_id}}</input>
-  </view>
-  <view class="content">
-    制造日期:
-    <input bindinput="Mould_id">{{mouldInfo.finish_date}}</input>
-  </view>
-  <view class="content">
-    备注信息:
-    <input bindinput="Mould_id">{{mouldInfo.order_note}}</input>
-  </view>
-  <view class="content">
-    交付日期:
-    <input bindinput="Mould_id">{{mouldInfo.delivery_date}}</input>
-  </view>
-</view>
 
-<view class="container">
-  <view class="content">
-    维修厂家:
-    <input bindinput="Mould_id">{{mouldInfo.mould_materials}}</input>
-  </view>
-  <view class="content">
-    维修记录:
-  </view>
-  <view class="content">
-     <textarea bindinput="Mould_id">
-      {{mouldInfo.mould_weight}}
-    </textarea>
-   </view>
-  <view class="content">
-    故障记录:
-  </view>
-   <view class="content">
-     <textarea>
-      {{mouldInfo.mould_weight}}
-    </textarea>
-  </view>
-     
-  <view class="content">
-    报废日期:
-    <input>{{mouldInfo.mould_drawing_no}}</input>
-  </view>
-</view>
+<scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
+	<view class="form">
+		<view class="cont">
+			<view class="ctitle">
+				<text>添加模具维修/故障信息</text>
+			</view>
+			<view class="ct">
+				<text>1.请输入模具ID：</text>
+			</view>
+			<view class="cq">
+				<input placeholder="请输入模具ID" placeholder-class='txt' maxlength='22' bindinput="bindMouldID" value="{{MouldID}}" />
+			</view>
+
+			<view class="ct">
+				<text>2.选择零件：</text>
+			</view>
+			<view class='select' catchtap='selectTap'>
+				<text class='select_text'>{{partData[index].partName}}</text>
+				<image class='select_img {{show&&"select_img_rotate"}}' src="/static/images/icon/xia_jian_tou.gif"></image>
+			</view>
+			<view class='option_box' style='height:{{show?(partData.length>5?300:partData.length*60):0}}rpx;'>
+				<text class='option' style='{{index==partData.length-1&&"border:0;"}}' wx:for='{{partData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.partName}}</text>
+			</view>
+
+			<view class="ct">
+				<text>3.请输入检修人员ID：</text>
+			</view>
+			<view class="cq">
+				<input placeholder="请输入检修人员ID" placeholder-class='txt' maxlength='20' bindinput="bindUserID" value="{{UserID}}" />
+			</view>
+			<view class="ct">
+				<text>4.请输入维修记录名：</text>
+			</view>
+			<view class="cq">
+				<input placeholder="请输入维修记录名" placeholder-class='txt' maxlength='20' bindinput="bindRepairName" value="{{RepairName}}" />
+			</view>
+			<view class="ct">
+				<text>5.请输入维修记录详细内容：</text>
+			</view>
+			<view class="cq">
+				<input placeholder="请输入维修记录详细内容" placeholder-class='txt' maxlength='20' bindinput="bindMaintenanceRecord" value="{{MaintenanceRecord}}" />
+			</view>
+			<view class="ct">
+				<text>6.请输入故障信息详细内容：</text>
+			</view>
+			<view class="cq">
+				<input placeholder="请输入故障信息详细内容" placeholder-class='txt' maxlength='20' bindinput="bindErrorRecord" value="{{ErrorRecord}}" />
+			</view>
+			<view class="ct">
+				<text>7.请输入录入时间：</text>
+			</view>
+			<view class="cq">
+				<input placeholder="请输入录入时间" placeholder-class='txt' maxlength='20' bindinput="bindRetirementTime" value="{{RetirementTime}}" />
+			</view>
+
+
+      <view class="cb">
+        <button class="bt" bindtap="bindCommit">提交</button>
+      </view>
+		</view>
+	</view>
+</scroll-view>

@@ -1,38 +1,40 @@
 <!--pages/index/index.wxml-->
 <!-- 第一屏，筛选 -->
 <view class="filter" hidden="{{filter_show}}">
-  <view class='select_box'>
-    <view class='select' catchtap='selectTap'>
-      <text class='select_text'>{{selectData[index]}}</text>
-      <image class='select_img {{show&&"select_img_rotate"}}' src="/static/images/icon/xia_jian_tou.gif"></image>
-    </view>
-    <view class="weui-search-bar__cancel-btn" bindtap='searchbytime' data-index="{{index}}">搜索</view>
-    <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-      <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
-    </view>
-  </view>
+	<view class='select_box'>
+		<view class='select' catchtap='selectTap'>
+			<text class='select_text'>{{selectData[index]}}</text>
+			<image class='select_img {{show&&"select_img_rotate"}}' src="/static/images/icon/xia_jian_tou.gif"></image>
+		</view>
+		<view class="weui-search-bar__cancel-btn" bindtap='searchbytime' data-index="{{index}}">搜索</view>
+		<view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+			<text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+		</view>
+	</view>
 </view>
 
 <!-- 第二屏，数据展示，需要for循环遍历 -->
-<view wx:for="{{orderList}}" wx:key="index" class="container">
-  <view class="content">
-    <view class="title">
-      <text decode>订单编号:&nbsp;{{item.orderID}}</text>
-      <view class="you_jian_tou" bindtap="mould_info" data-orderid="{{item.orderID}}" data-ordername="{{item.orderName}}"></view>
-    </view>
-  </view>
-  <view class="content1">
-    <view class="left">
-      <text>{{item.quantity}}</text>
-      <text class="title2">模具数量</text>
-    </view>
-    <view class="center">
-      <text>{{item.orderName}}</text>
-      <text class="title2">模具类型</text>
-    </view>
-    <view class="right">
-      <text>{{item.createTime}}</text>
-      <text class="title2">创建时间</text>
-    </view>
-  </view>
-</view>
+<scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
+	<view wx:for="{{orderList}}" wx:key="index" class="container">
+		<view class="content">
+			<view class="title">
+				<text decode>订单编号:&nbsp;{{item.orderID}}</text>
+				<view class="you_jian_tou" bindtap="mould_info" data-orderid="{{item.orderID}}" data-ordername="{{item.orderName}}"></view>
+			</view>
+		</view>
+		<view class="content1">
+			<view class="left">
+				<text>{{item.quantity}}</text>
+				<text class="title2">模具数量</text>
+			</view>
+			<view class="center">
+				<text>{{item.orderName}}</text>
+				<text class="title2">模具类型</text>
+			</view>
+			<view class="right">
+				<text>{{item.createTime}}</text>
+				<text class="title2">创建时间</text>
+			</view>
+		</view>
+	</view>
+</scroll-view>

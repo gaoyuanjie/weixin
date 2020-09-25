@@ -6,7 +6,7 @@
         <image class="avatar" wx:if="{{userInfo}}" src="{{userInfo.avatarUrl}}"></image>
         <image class="avatar" wx:else src="/static/images/auction/hh.png"></image>
         <view class="name" wx:if="{{userInfo}}">
-          <view bindtap="logout">{{userInfo.nickName}}</view>
+          <view bindtap="logout"><text style="font-size: 30rpx">{{userInfo.nickName}}</text></view>
         </view>
         <view class="name" wx:else>
           <navigator url="/pages/login/login">登录</navigator> 

@@ -10,7 +10,8 @@ Page({
    */
   data: {
     mould_list: [],
-    ordername:""
+    ordername:"",
+    orderID:""
   },
 
   /**
@@ -20,6 +21,16 @@ Page({
     let list = JSON.parse(options.dataList)
     var userInfo = wx.getStorageSync('userInfo')
     let that=this
+    that.setData({
+      orderID: list.orderID
+    })
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight
+        });
+      }
+    })
     wx.request({
       url: api.Mould_list,
       data: {
@@ -36,7 +47,7 @@ Page({
       success: function(res) {
         if (!res.data.success) {
           wx.showToast({
-            title: '获取数据失败',
+            title: '获取数据失败！',
             icon: 'none'
           })
           setTimeout(function () {
@@ -44,6 +55,9 @@ Page({
 
             })
           }, 1500)
+        }
+        for (var i = 0; i < res.data.data.length; i++) {
+          res.data.data[i].createTime = res.data.data[i].createTime.split(' ')[0]
         }
         that.setData({
           mould_list: res.data.data,
@@ -105,12 +119,16 @@ Page({
   },
 
   mould_info: function (e) {
+    var that = this
     var userInfo = wx.getStorageSync('userInfo')
-    console.log('7777',e.currentTarget.dataset.mouldid, e.currentTarget.dataset.mouldname)
+    console.log('7777', that.data.orderID, e.currentTarget.dataset.mouldid, e.currentTarget.dataset.mouldname, e.currentTarget.dataset.index)
     let dataList = {
+      orderID:that.data.orderID,
       mouldID: e.currentTarget.dataset.mouldid,
-      mouldname: e.currentTarget.dataset.mouldname
+      mouldname: e.currentTarget.dataset.mouldname,
+      index: e.currentTarget.dataset.index
     }
+
     wx.navigateTo({
       url: '/pages/mould_detail/mould_detail?' + 'dataList=' + JSON.stringify(dataList),
     })

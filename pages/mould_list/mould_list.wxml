@@ -1,25 +1,24 @@
 <!--pages/mould_list/mould_list.wxml-->
 <view class="ordertitle">
-  {{ordername}}的模具信息
+	订单包含的模具
 </view>
-
-<view wx:for="{{mould_list}}" wx:key="index" class="container">
-  <view class="content">
-    <view class="title">
-      <text decode>模具名:&nbsp;{{item.mouldName}}</text>
-      <view class="you_jian_tou" bindtap="mould_info" data-mouldid="{{item.mouldID}}" data-mouldname="{{item.mouldName}}"></view>
-    </view>
-  </view>
-  <view class="content1">
-    <view class="left">
-      <text>{{item.number}}</text>
-      <text class="title2">零件数量</text>
-    </view>
-    <view class="right">
-      <text>{{item.createTime}}</text>
-      <text class="title2">创建时间</text>
-    </view>
-  </view>
-</view>
-
-
+<scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
+	<view wx:for="{{mould_list}}" wx:key="index" class="container">
+		<view class="content">
+			<view class="title">
+				<text decode>模具ID:&nbsp;{{item.mouldID}}</text>
+				<view class="you_jian_tou" bindtap="mould_info" data-mouldid="{{item.mouldID}}" data-mouldname="{{item.mouldName}}" data-index="{{index}}"></view>
+			</view>
+		</view>
+		<view class="content1">
+			<view class="left">
+				<view>模具描述</view>
+				<text>制造时间</text>
+			</view>
+			<view class="right">
+				<view>{{item.mouldName}}</view>
+				<text>{{item.createTime}}</text>
+			</view>
+		</view>
+	</view>
+</scroll-view>
